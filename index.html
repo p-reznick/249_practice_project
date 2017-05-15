@@ -1,0 +1,78 @@
+<!DOCTYPE=html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <title>Peter's Contact Manager</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.8/handlebars.amd.js"></script>
+    <link rel="stylesheet" href="./main.css">
+  </head>
+  <body>
+    <div id="banner">
+      <h1>Contact Manager</h1>
+      <p>Using Backbone.js, Localstorage, RequireJS, Handlebar and Bootstrap</p>
+    </div>
+    <main>
+      <nav>
+        <ul>
+          <li>
+            <a class="add_contact" href="#">Add Contact</a>
+          </li>
+          <li>
+            <input id="search" placeholder="Search">
+          </li>
+        </ul>
+      </nav>
+      <div id="content">
+        <div id="no_contacts">
+          <h2>There are no contacts.</h2>
+          <a class="add_contact" href="#">Add Contact</a>
+        </div>
+      </div>
+      <div id="add_contact">
+        <h2>Create Contact</h2>
+        <form>
+          <fieldset>
+            <ul>
+              <li>
+                <input type="text" id="full_name" name="full_name">
+                <label for="full_name">Full Name:</label>
+              </li>
+              <li>
+                <input type="email" id="email" name="email">
+                <label for="email">Email address:</label>
+              </li>
+              <li>
+                <input type="tel" name="telephone_number">
+                <label for="telephone_number">Telephone number:</label>
+              </li>
+              <div class="button_holder">
+                <button type="submit">Submit</button>
+                <a href="#">Cancel</a>
+              </div>
+            </ul>
+          </fieldset>
+        </form>
+      </div>
+      <footer>
+        <p>Developed by <a href="http://www.devsaran.com/">Devsaran.com</a> and <a href="http://www.239listing.com/">239 Listing Real Estate</a>.</p>
+      </footer>
+    </main>
+  </body>
+
+  <script id="contact_template" type="text/x-handlebars-template">
+    <div id="contact"
+      <h3>{{full_name}}</h3>
+      <dl>
+        <dt>Phone Number:</dt>
+        <dd>{{phone_number}}</dd>
+        <dt>Email</dt>
+        <dd>{{email}}</dd>
+      </dl>
+      <div class="button_holder">
+        <a href="#">Edit</a>
+        <a href="#">Delete</a>
+      </div>
+    </div>
+  </script>
+</html>
