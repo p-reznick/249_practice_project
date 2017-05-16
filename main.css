@@ -1,27 +1,24 @@
 @import url("./whitespace-reset.css");
 
-#add_contact {
+.user_input_form {
   display: none;
-}
-
-#add_contact {
   text-align: center;
   width: 90%;
   margin: 0 auto;
 }
 
-#add_contact h2 {
+.user_input_form h2 {
   font-size: 30px;
   margin-bottom: 10px;
   border-bottom: 1px solid #d6d6d6;
 }
 
-#add_contact label {
+.user_input_form label {
   padding: 20px 10px 0 0;
   font-weight: bold;
 }
 
-#add_contact li input {
+.user_input_form li input {
   display: inline-block;
   float: right;
   width: 70%;
@@ -29,7 +26,7 @@
   margin: 10px 0;
 }
 
-#add_contact ul {
+.user_input_form ul {
   width: 60%;
   margin: 0 auto;
 }
@@ -53,6 +50,27 @@
   padding: 20px;
   width: 90%;
   box-sizing: border-box;;
+}
+
+#content li {
+  display: inline-block;
+  float: left;
+  width: 25%;
+}
+
+#content ul:after {
+  display: block;
+  clear: both;
+  content: '';
+}
+
+#content li h3 {
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+#content dt {
+  font-weight: bold;
 }
 
 body {
@@ -117,13 +135,23 @@ nav {
 
 nav a,
 #no_contacts a,
-#add_contact a,
-button {
+#create_contact a,
+button,
+.button_holder a {
   color: #002b70;
   display: inline-block;
   padding: 10px;
   border: 1px solid #002b70;
   border-radius: 6px;
+}
+
+nav a:hover,
+#no_contacts a:hover,
+#create_contact a:hover,
+button:hover,
+.button_holder a:hover {
+  background-color: #563d7c;
+  color: #fff;
 }
 
 nav li {
@@ -132,11 +160,12 @@ nav li {
   width: 50%;
 }
 
-
 #no_contacts {
   margin: 0 auto;
   text-align: center;
   height: 120px;
   background-color: #f5f5f5;
   box-sizing: border-box;
+  border: 1px solid #d6d6d6;
+  border-radius: 4px;
 }
