@@ -48,14 +48,11 @@
               <li>
                 <input type="tel" id="telephone_number" name="telephone_number">
                 <label for="telephone_number">Telephone number:</label>
-              </li>
-              <li>
-                <input type
-              <div class="button_holder">
-                <button type="submit">Submit</button>
-                <a class="cancel" href="#">Cancel</a>
-              </div>
             </ul>
+            <div class="button_holder">
+              <button type="submit">Submit</button>
+              <a class="cancel" href="#">Cancel</a>
+            </div>
           </fieldset>
         </form>
       </div>
@@ -81,6 +78,22 @@
                 <a class="cancel" href="#">Cancel</a>
               </div>
             </ul>
+          </fieldset>
+        </form>
+      </div>
+      <div class="user_input_form" id="edit_tag_list">
+        <h2>Edit Tags</h2>
+        <form>
+          <fieldset>
+            <ul>
+              <h2>Add Tag</h2>
+              <li>
+                <input type="text" id="new_tag" name="new_tag">
+                <label for="new_tag">New Tag:</label>
+              </li>
+              <h2>Delete Tags</h2>
+            </ul>
+            <button id="submit_tag_edits" type="submit">Make Changes</submit>
           </fieldset>
         </form>
       </div>
@@ -112,5 +125,23 @@
         <a class="delete" href="#">Delete</a>
       </div>
     </li>
+  </script>
+
+  <script id="tags_list_template" type="text/x-handlebars-template">
+    <li id="tag_list">
+      <form>
+        <select name="tag" id="tag" size="4" multiple>
+          {{#each tags}}
+            <option value="{{tagName}}">{{tagName}}</option>
+          {{/each}}
+        </select>
+      </form>
+    </li>
+  </script>
+
+  <script id="filter_buttons" type="text/x-handlebars-template">
+    <div>
+      <a id="edit_tags" href="#">Edit Tags</a>
+    </div>
   </script>
 </html>
