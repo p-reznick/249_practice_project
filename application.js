@@ -68,8 +68,8 @@ var application = {
 
     $('#create_contact input').val('');
 
-    $('#front_page').hide();
-    $('#create_contact').show();
+    $('#front_page').slideUp();
+    $('#create_contact').slideDown();
   },
   showEditContactForm: function(e) {
     if (e) {
@@ -85,8 +85,8 @@ var application = {
     $('#tag_list').remove();
     $('#edit_contact ul').append(tagsListHTML);
 
-    $('#front_page').hide();
-    $('#edit_contact').show();
+    $('#front_page').slideUp();
+    $('#edit_contact').slideDown();
     $('#edit_contact #full_name').val(contact.name);
     $('#edit_contact #email').val(contact.emailAddress);
     $('#edit_contact #telephone_number').val(contact.phoneNumber);
@@ -113,23 +113,24 @@ var application = {
     $('nav ul').append(tagsListHTML);
     $('nav #tag_list form').append(filterButtonsHTML);
 
-    $('#front_page').show();
-    $('#edit_tag_list').hide();
-    $('#create_contact').hide();
-    $('#edit_contact').hide();
+    $('#front_page').slideDown();
+    $('#edit_tag_list').slideUp();
+    $('#create_contact').slideUp();
+    $('#edit_contact').slideUp();
   },
   cancelFormDisplay: function(e) {
     e.preventDefault();
     this.showFrontPage();
   },
   displayContacts: function(list) {
+    var contactsHTML = this.contactsTemplate({ contacts: list });
+    $('#contacts_holder').html(contactsHTML);
     if (list.length > 0) {
-      $('#no_contacts').hide();
-      var contactsHTML = this.contactsTemplate({ contacts: list });
-      $('#content').html(contactsHTML);
+      $('#no_contacts').slideUp();
+      $('#contacts_holder').slideDown();
     } else {
-      $('#contacts').hide();
-      $('#no_contacts').show();
+      $('#contacts').slideUp();
+      $('#no_contacts').slideDown();
     }
   },
   deleteContact: function(e) {
@@ -229,8 +230,8 @@ var application = {
   showEditTagsForm() {
     var tagsListHTML = this.tagsListTemplate({ tags: this.tags });
 
-    $('#front_page').hide();
-    $('#edit_tag_list').show();
+    $('#front_page').slideUp();
+    $('#edit_tag_list').slideDown();
     $('#edit_tag_list #tag_list').remove();
     $('#edit_tag_list ul').append(tagsListHTML);
   }
