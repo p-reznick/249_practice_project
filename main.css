@@ -25,10 +25,14 @@ h3 {
 }
 
 input,
+select,
 button,
 a.cancel_form,
-a.add_contact {
+a.add_contact,
+nav a,
+#contacts_list a {
   display: inline-block;
+  font-size: 1rem;
   height: 2rem;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -38,14 +42,18 @@ a.add_contact {
 
 button,
 a.cancel_form,
-a.add_contact {
+a.add_contact,
+#contacts_list a,
+nav a {
   height: 2.5rem;
   padding-top: 10px;
 }
 
 button:hover,
 a.cancel_form:hover,
-a.add_contact:hover {
+a.add_contact:hover,
+#contacts_list a:hover,
+nav a:hover {
   background-color: #563d7c;
   color: #fff;
 }
@@ -61,6 +69,12 @@ footer,
 nav {
   width: 900px;
   margin: 0 auto;
+}
+
+select {
+  min-width: 130px;
+  height: 4rem;
+  padding-top: 2px;
 }
 
 /*header*/
@@ -99,7 +113,7 @@ nav li {
   float: left;
 }
 
-nav .tag_list_point p {
+nav .tags_list p {
   float: left;
 }
 
@@ -109,14 +123,41 @@ nav ul:after {
   content: '';
 }
 
+#edit_tags {
+  float: right;
+}
+
 /*main*/
+#contacts_list li {
+  display: inline-block;
+  float: left;
+  width: 24%;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+#contacts_list p:nth-of-type(2n - 1) {
+  font-weight: bold;
+}
+
+#contacts_list ul {
+  width: 90%;
+  margin: 20px auto 0 auto;
+}
+
+#contacts_list ul:after {
+  display: block;
+  clear: both;
+  content: '';
+}
 
 main {
   width: 880px;
   margin: 0 auto;
 }
 
-section {
+section,
+.button_holder {
   text-align: center;
 }
 
@@ -153,6 +194,10 @@ dt {
   box-sizing: border-box;
 }
 
+form .tags_list {
+  height: 90px;
+}
+
 #no_contacts {
   text-align: center;
   margin: 0 auto;
@@ -167,7 +212,7 @@ dt {
 /*footer*/
 
 footer {
-  margin-top: 25px;
+  margin: 25px 0 25px 0;
   padding-top: 15px;
   text-align: center;
   border-top: 1px solid #f2efed;

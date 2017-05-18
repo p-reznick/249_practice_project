@@ -18,25 +18,26 @@
         <li>
           <a class="add_contact" href="#">Add Contact</a>
         </li>
-        <li class="tag_list_point">
-          <p>Filter</p>
+        <li class="tags_list">
+          <a id="edit_tags" href="#">Edit tags</a>
         </li>
         <li>
-          <input type="text" id="search_bar">
+          <input type="text" placeholder="Search by name" id="search_bar">
         </li>
       </ul>
     </nav>
     <main>
-      <section id="no_contacts">
-        <h3>There are no contacts.</h3>
-        <a class="add_contact" href="#">Add Contact</a>
+      <section id="contacts_view">
+        <div id="no_contacts">
+          <h3>There are no contacts.</h3>
+          <a class="add_contact" href="#">Add Contact</a>
+        </div>
+        <div id="contacts_list">
+        </div>
       </section>
-      <section id="contacts">
-
-      </section>
-      <section id="add_contact">
+      <section id="add_contact_view">
         <h2>Create Contact</h2>
-        <form action="#" method="get">
+        <form id="add_contact_form" action="#" method="get">
           <dl>
             <dt><label for="name">Full name:</label></dt>
             <dd><input type="text" id="name" name="name"></dd>
@@ -53,9 +54,9 @@
           </div>
         </form>
       </section>
-      <section id="edit_contact">
+      <section id="edit_contact_view">
         <h2>Edit Contact</h2>
-        <form action="#" method="get">
+        <form id="edit_contact_form" action="#" method="get">
           <dl>
             <dt><label for="name">Full name:</label></dt>
             <dd><input type="text" id="name" name="name"></dd>
@@ -65,14 +66,14 @@
             <dd><input type="tel" id="phone" name="phone"></dd>
             <dt><label for="tags">Tags:</label></dt>
             <dd class="tags_list"></dd>
-            <div class="button_holder">
-              <button type="submit">Submit</button>
-              <a class="cancel_form" href="#">Cancel</a>
-            </div>
           </dl>
+          <div class="button_holder">
+            <button type="submit">Submit</button>
+            <a class="cancel_form" href="#">Cancel</a>
+          </div>
         </form>
       </section>
-      <section id="edit_tag_list">
+      <section id="edit_tag_list_view">
         <h2>Edit Tags</h2>
         <form action="#" method="get">
           <dl>
@@ -92,4 +93,30 @@
       <p>Developed by <a href="http://www.devsaran.com/">Devsaran.com</a> and 239 <a href="http://www.239listing.com/">Listing Real Estate.</a></p>
     </footer>
   </body>
+
+  <script id="contacts_list_template" type="text/x-handlebars-template">
+    <ul>
+      {{#each contacts}}
+        <li data-id="{{email}}">
+          <h3>{{name}}</h3>
+          <p>Email:</p>
+          <p>{{email}}</p>
+          <p>Telephone number:</p>
+          <p>{{phone}}</p>
+          <div>
+            <a class="edit_contact" href="#">Edit</a>
+            <a class="delete_contact" href="#">Delete</a>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  </script>
+
+  <script id="tags_list_template" type="text/x-handlebars-template">
+    <select id="tags" name="tags" multiple>
+      {{#each tags}}
+        <option value="{{tagName}}">{{tagName}}</option>
+      {{/each}}
+    </select>
+  </script>
 </html>
