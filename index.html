@@ -9,142 +9,87 @@
     <link rel="stylesheet" href="./main.css">
   </head>
   <body>
-    <div id="banner">
-      <h1>Contact Manager</h1>
+    <header>
+      <h1><a href="#">Contact Manager</a></h1>
       <p>Using Backbone.js, Localstorage, RequireJS, Handlebar and Bootstrap</p>
-    </div>
+    </header>
+    <nav>
+      <ul>
+        <li>
+          <a class="add_contact" href="#">Add Contact</a>
+        </li>
+        <li class="tag_list_point">
+          <p>Filter</p>
+        </li>
+        <li>
+          <input type="text" id="search_bar">
+        </li>
+      </ul>
+    </nav>
     <main>
-      <div id="front_page">
-        <nav>
-          <ul>
-            <li>
-              <a class="add_contact" href="#">Add Contact</a>
-            </li>
-            <li>
-              <input id="search" placeholder="Search">
-            </li>
-          </ul>
-        </nav>
-        <div id="content">
-          <div id="no_contacts">
-            <h2>There are no contacts.</h2>
-            <a class="add_contact" href="#">Add Contact</a>
-          </div>
-          <div id="contacts_holder">
-          </div>
-        </div>
-      </div>
-      <div class="user_input_form" id="create_contact">
+      <section id="no_contacts">
+        <h3>There are no contacts.</h3>
+        <a class="add_contact" href="#">Add Contact</a>
+      </section>
+      <section id="contacts">
+
+      </section>
+      <section id="add_contact">
         <h2>Create Contact</h2>
-        <form>
-          <fieldset>
-            <ul>
-              <li>
-                <input type="text" id="full_name" name="full_name">
-                <label for="full_name">Full Name:</label>
-              </li>
-              <li>
-                <input type="email" id="email" name="email">
-                <label for="email">Email address:</label>
-              </li>
-              <li>
-                <input type="tel" id="telephone_number" name="telephone_number">
-                <label for="telephone_number">Telephone number:</label>
-            </ul>
+        <form action="#" method="get">
+          <dl>
+            <dt><label for="name">Full name:</label></dt>
+            <dd><input type="text" id="name" name="name"></dd>
+            <dt><label for="email">Email address:</label></dt>
+            <dd><input type="email" id="email" name="email"></dd>
+            <dt><label for="phone">Telephone number:</label></dt>
+            <dd><input type="tel" id="phone" name="phone"></dd>
+            <dt><label for="tags">Tags:</label></dt>
+            <dd class="tags_list"></dd>
+          </dl>
+          <div class="button_holder">
+            <button type="submit">Submit</button>
+            <a class="cancel_form" href="#">Cancel</a>
+          </div>
+        </form>
+      </section>
+      <section id="edit_contact">
+        <h2>Edit Contact</h2>
+        <form action="#" method="get">
+          <dl>
+            <dt><label for="name">Full name:</label></dt>
+            <dd><input type="text" id="name" name="name"></dd>
+            <dt><label for="email">Email address:</label></dt>
+            <dd><input type="email" id="email" name="email"></dd>
+            <dt><label for="phone">Telephone number:</label></dt>
+            <dd><input type="tel" id="phone" name="phone"></dd>
+            <dt><label for="tags">Tags:</label></dt>
+            <dd class="tags_list"></dd>
             <div class="button_holder">
               <button type="submit">Submit</button>
-              <a class="cancel" href="#">Cancel</a>
+              <a class="cancel_form" href="#">Cancel</a>
             </div>
-          </fieldset>
+          </dl>
         </form>
-      </div>
-      <div class="user_input_form" id="edit_contact">
-        <h2>Edit Contact</h2>
-        <form>
-          <fieldset>
-            <ul>
-              <li>
-                <input type="text" id="full_name" name="full_name">
-                <label for="full_name">Full Name:</label>
-              </li>
-              <li>
-                <input type="email" id="email" name="email">
-                <label for="email">Email address:</label>
-              </li>
-              <li>
-                <input type="tel" id="telephone_number" name="telephone_number">
-                <label for="telephone_number">Telephone number:</label>
-              </li>
-              <div class="button_holder">
-                <button type="submit">Submit</button>
-                <a class="cancel" href="#">Cancel</a>
-              </div>
-            </ul>
-          </fieldset>
-        </form>
-      </div>
-      <div class="user_input_form" id="edit_tag_list">
+      </section>
+      <section id="edit_tag_list">
         <h2>Edit Tags</h2>
-        <form>
-          <fieldset>
-            <ul>
-              <h2>Add Tag</h2>
-              <li>
-                <input type="text" id="new_tag" name="new_tag">
-                <label for="new_tag">New Tag:</label>
-              </li>
-              <h2>Delete Tags</h2>
-            </ul>
-            <button id="submit_tag_edits" type="submit">Make Changes</button>
-            <a class="cancel" href="#">Cancel</a>
-          </fieldset>
+        <form action="#" method="get">
+          <dl>
+            <dt><label for="new_tag">Add tag:</label></dt>
+            <dd><input type="text" id="new_tag" name="new_tag"></dd>
+            <dt><label for="tags">Delete tags:</label></dt>
+            <dd class="tags_list"></dd>
+          </dl>
+          <div class="button_holder">
+            <button type="submit">Submit</button>
+            <a class="cancel_form" href="#">Back to Contacts</a>
+          </div>
         </form>
-      </div>
+      </section>
     </main>
     <footer>
-      <p>Developed by <a href="http://www.devsaran.com/">Devsaran.com</a> and <a href="http://www.239listing.com/">239 Listing Real Estate</a>.</p>
+      <p>Developed by <a href="http://www.devsaran.com/">Devsaran.com</a> and 239 <a href="http://www.239listing.com/">Listing Real Estate.</a></p>
     </footer>
   </body>
-
-  <script id="contact_list_template" type="text/x-handlebars-template">
-    <ul id="contacts">
-      {{#each contacts}}
-        {{> contactTemplatePartial}}
-      {{/each}}
-    </ul>
-  </script>
-
-  <script id="contact_template" type="text/x-handlebars-template">
-    <li data-id="{{contactID}}">
-      <h3>{{name}}</h3>
-      <dl>
-        <dt>Phone Number:</dt>
-        <dd>{{phoneNumber}}</dd>
-        <dt>Email:</dt>
-        <dd>{{emailAddress}}</dd>
-      </dl>
-      <div class="button_holder">
-        <a class="edit" href="#">Edit</a>
-        <a class="delete" href="#">Delete</a>
-      </div>
-    </li>
-  </script>
-
-  <script id="tags_list_template" type="text/x-handlebars-template">
-    <li id="tag_list">
-      <form>
-        <select name="tag" id="tag" size="4" multiple>
-          {{#each tags}}
-            <option value="{{tagName}}">{{tagName}}</option>
-          {{/each}}
-        </select>
-      </form>
-    </li>
-  </script>
-
-  <script id="filter_buttons" type="text/x-handlebars-template">
-    <div>
-      <a id="edit_tags" href="#">Edit Tags</a>
-    </div>
-  </script>
 </html>
